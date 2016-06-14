@@ -1,0 +1,17 @@
+<%= simple_form_for(@match) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :winner_id %>
+    <%= f.input :winner_score %>
+    <%= f.input :loser_id %>
+    <%= f.input :loser_score %>
+    <%= f.input :time %>
+  </div>
+
+  <%= f.input :players, collection: Player.all, as: :check_boxes %>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
