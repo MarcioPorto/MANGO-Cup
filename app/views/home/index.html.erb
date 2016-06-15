@@ -2,7 +2,7 @@
 	<div class="jumbotron text-center container">
 	  <h1>MANGO Cup</h1>
 	  <p>The greatest Foosball tournament there ever was or will be.</p>
-	  <% if Time.now <= Time.new(2016, 06, 15, 10, 30, 00) %>
+	  <% if Time.now <= Time.new(2016, 06, 15, 11, 00, 00) %>
 		<p>Registration expires in <span id="getting-started"></span>.</p>
 		<br>
 		<%= link_to 'Register Now', new_player_path, class: 'btn btn-primary btn-lg' %>
@@ -18,7 +18,7 @@
 
 <script type="text/javascript">
   $("#getting-started")
-  .countdown("2016/06/16 10:30:00", function(event) {
+  .countdown("2016/06/16 11:00:00", function(event) {
     $(this).text(
       event.strftime('%H:%M:%S')
     );

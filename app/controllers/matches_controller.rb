@@ -1,13 +1,14 @@
 class MatchesController < ApplicationController
   before_action :set_match, only: [:show, :edit, :update, :destroy]
 
-  # GET /matches
-  # GET /matches.json
   def index
-    @matches = Match.all
+    # returns upcoming matches in order
+    @matches = Match.all.order(time: :asc)
   end
 
   def show
+    @player1 = Player.find(@match.players[0])
+    @player2 = Player.find(@match.players[1])
   end
 
   def new
