@@ -1,17 +1,26 @@
-<div class="jumbotron text-center">
-  <h1>MANGO Cup</h1>
-  <p>The greatest Foosball tournament there ever was or will be.</p>
-  <%= link_to 'Register', new_player_path, class: 'btn btn-primary btn-lg' %>
+<div>
+	<div class="jumbotron text-center container">
+	  <h1>MANGO Cup</h1>
+	  <p>The greatest Foosball tournament there ever was or will be.</p>
+	  <% if Time.now <= Time.new(2016, 06, 15, 10, 30, 00) %>
+		<p>Registration expires in <span id="getting-started"></span>.</p>
+		<br>
+		<%= link_to 'Register Now', new_player_path, class: 'btn btn-primary btn-lg' %>
+	  <% else %>
+	    <p>Registration has expired. Contact Márcio for more information.</p>
+	    <br>
+		<%= link_to 'All Matches', matches_path, class: 'btn btn-primary btn-lg' %>
+	  <% end %>
+	</div>
+
+	<%= image_tag('http://www.foosballreviews.com/foosball-video-picture.jpg', style: 'width: 100%; height: auto; position:absolute; left:0px; top:0px; z-index:-1;') %>
 </div>
 
-<%#= image_tag('http://www.foosballreviews.com/foosball-video-picture.jpg', style: 'width: 100%; height: auto;') %>
-
-<div id="getting-started"></div>
 <script type="text/javascript">
-  // $("#getting-started")
-  // .countdown("2016/06/15", function(event) {
-  //   $(this).text(
-  //     event.strftime('%D days %H:%M:%S')
-  //   );
-  // });
+  $("#getting-started")
+  .countdown("2016/06/16 10:30:00", function(event) {
+    $(this).text(
+      event.strftime('%H:%M:%S')
+    );
+  });
 </script>

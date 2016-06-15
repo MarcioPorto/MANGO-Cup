@@ -2,13 +2,11 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%#= f.input :winner_id %>
-    <%#= f.input :winner_score %>
-    <%#= f.input :loser_id %>
-    <%#= f.input :loser_score %>
     <%= f.input :time %>
     <%= f.input :player_1, collection: Player.all %>
+    <%= f.input :player_1_score %>
     <%= f.input :player_2, collection: Player.all %>
+    <%= f.input :player_2_score %>
   </div>
 
   <div class="form-actions">
